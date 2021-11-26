@@ -57,8 +57,8 @@ nnoremap <C-e> :call NerdTreeLogic()<CR>
 nnoremap <C-q> <C-W>s <C-W>j :term<CR> 8<C-W>- :set nu!<CR> i
 
 fun! Start()
-    " Don't run if: we have commandline arguments, we don't have an empty
-    " buffer, if we've not invoked as vim or gvim, or if we'e start in insert mode
+    " Don't run if: we have command line arguments, we don't have an empty
+    " buffer, if we've not invoked as vim or gvim, or if we start in insert mode
     if argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode
         return
     endif
@@ -108,6 +108,23 @@ map <Up> :resize +2<CR>
 map <Down> :resize -2<CR>
 map <Left> :vertical resize +2<CR>
 map <Right> :vertical resize -2<CR>
+
+let mapleader = ","
+
+" Clipboard Copy and Paste
+vmap <leader>y "+y
+vmap <leader>p "+p
+
+" map <leader>v :echo "hi"<CR>
+
+" Spell Checking
+" ]s jump to next misspelled word
+" [s jump to previous misspelled word
+" z= to see possible corrections
+" zg to mark word as correct and add to dictionary
+" zw to make word as incorrect
+map <leader>s :set spell spelllang=en_us<CR>
+map <leader>d :set nospell<CR>
 
 " Key maps inside inset mode
 imap jk <Esc>

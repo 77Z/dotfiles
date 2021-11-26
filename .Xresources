@@ -1,0 +1,24 @@
+XClock*foreground: #fbfbfb
+XClock*background: #000018
+XClock*update: 1
+XClock*geometry:          210x210+1020+12
+XClock.Clock.majorColor:  rgba:f0/f0/19/7b
+XClock.Clock.minorColor:  rgba:a0/c0/f0/c0
+XClock.Clock.hourColor:   rgba:c9/66/11/72
+XClock.Clock.minuteColor: rgba:00/82/9f/72
+XClock.Clock.secondColor: rgba:50/93/30/6f
+
+dwm.normbordercolor: #050029
+dwm.normbgcolor: #050029
+dwm.normfgcolor: #FFFFFF
+dwm.selbordercolor: #050029
+dwm.selbgcolor: #0e0070
+dwm.selfgcolor: #FFFFFF
+
+xmenu.font: CaskaydiaCove Nerd Font Mono:size=10
+xmenu.background: #050029
+xmenu.foreground: #FFFFFF
+xmenu.selbackground: #0000ff
+xmenu.selforground: #FFFFFF
+xmenu.separator: #FFFFFF
+xmenu.gap: 0
