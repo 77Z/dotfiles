@@ -1,11 +1,15 @@
 call plug#begin('~/.config/nvim/plugins')
 
+Plug 'xolox/vim-misc' " Stuff for Xolox Plugins
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'preservim/nerdtree' " File Explorer
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy Search
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'jiangmiao/auto-pairs' " Auto Close Bracket
+Plug 'preservim/tagbar' " Tags
+Plug 'xolox/vim-session' " Better Vim Sessions
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
@@ -23,9 +27,12 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
+" NerdTree Config
+let NERDTreeIgnore = ['\.o$'] " Don't display build files
+
 " Enable Themes
-" colorscheme gruvbox
-colorscheme jellybeans
+colorscheme gruvbox
+" colorscheme jellybeans
 
 " Line Numbers
 set number
@@ -55,6 +62,11 @@ nnoremap <C-e> :call NerdTreeLogic()<CR>
 "  Disable line numbers
 "  Enter insert mode
 nnoremap <C-q> <C-W>s <C-W>j :term<CR> 8<C-W>- :set nu!<CR> i
+
+nnoremap <C-a> :TagbarToggle<CR>
+
+" Remap for rename current word
+nnoremap <F2> <Plug>(coc-rename)
 
 fun! Start()
     " Don't run if: we have command line arguments, we don't have an empty
@@ -96,7 +108,8 @@ set mouse=a
 " Powerline customizations
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='jellybeans'
+"let g:airline_theme='jellybeans'
+let g:airline_theme='gruvbox'
 
 " Ctags extras
 " Open definition in new tab
@@ -106,8 +119,8 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 map <Up> :resize +2<CR>
 map <Down> :resize -2<CR>
-map <Left> :vertical resize +2<CR>
-map <Right> :vertical resize -2<CR>
+map <Left> :vertical resize -2<CR>
+map <Right> :vertical resize +2<CR>
 
 let mapleader = ","
 
@@ -126,8 +139,10 @@ vmap <leader>p "+p
 map <leader>s :set spell spelllang=en_us<CR>
 map <leader>d :set nospell<CR>
 
-" Key maps inside inset mode
+" Key maps inside insert mode
 imap jk <Esc>
+
+inoremap <silent><expr> <c-space> coc#refresh()
 
 augroup ScrollbarInit
   autocmd!
