@@ -1,0 +1,5 @@
+clone into home dir with
+
+$ git clone https://github.com/77Z/dotfiles.git .dotfiles
+
+$ ./make_symlinks.sh

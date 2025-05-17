@@ -1,2 +1,0 @@
-# dotfiles
-Vince's DotFiles
